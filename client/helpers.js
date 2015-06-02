@@ -19,11 +19,3 @@ Template.testing.helpers({
 });
 
 // remember to read TODO.txt
-
-searchPlayerVotesId = function(id){
-  return PlayerVotes.findOne({_id:id});
-}
-
-searchPlayerVotesUser = function(user){
-  return PlayerVotes.findOne({user:user});
-}

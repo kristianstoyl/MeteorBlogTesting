@@ -1,19 +1,19 @@
 Accounts.onCreateUser(function(options, user){
     PlayerVotes.insert({
-        user: this.userId,
+        user: user.user._id,
         score: 0
     });
 });
 
 Accounts.onLogin(function (user) {
-
     //TODO: Should check if user is connected to PlayerVotes, if not, insert user.
-    var list = searchPlayerVotesUser(user.user._id);
-    if(list.count() == 0){
-      PlayerVotes.insert({
-          user: user.user._id,
-          score: 0
-      });
+
+    var list = Meteor.call('searchPlayerVotesUser', user.user._id);
+    if(typeof list === undefined){
+        PlayerVotes.insert({
+            user: user.user._id,
+            score: 0
+        });
     }
 
 });

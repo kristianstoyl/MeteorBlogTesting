@@ -22,7 +22,7 @@ Template.testing.events({
             function (isConfirm) {
                 if (isConfirm) {
                     Session.set('counter', 0);
-                    Meteor.call('resetPlayerVotes')
+                    Meteor.call('resetPlayerVotes');
                     swal("Deleted!",
                         "Your imaginary file has been deleted.",
                         "success");
@@ -36,7 +36,16 @@ Template.testing.events({
         Meteor.call('clearPlayerVotes')
     },
     'click #userId': function(){
-        alert(Meteor.userId())
+        swal(Meteor.userId())
+    },
+    'click #create': function(){
+        var list = Meteor.call('searchPlayerVotesUser', Meteor.userId());
+        if(typeof list === undefined){
+            PlayerVotes.insert({
+                user: Meteor.userId(),
+                score: 0
+            });
+        }
     }
 });
 

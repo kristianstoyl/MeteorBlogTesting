@@ -2,7 +2,7 @@ Meteor.startup(function () {
     return Meteor.methods({
          //Clears ALL items in collection PlayerVotes
         clearPlayerVotes: function(){
-            console.log("Cleared PlayerVotes collection")
+            console.log("Cleared PlayerVotes collection");
             return PlayerVotes.remove({});
         },
         /*
@@ -20,6 +20,23 @@ Meteor.startup(function () {
             _.each(list, function(coll){
               PlayerVotes.update(coll._id, {$set: {score: 0}});
             });
+        },
+        searchPlayerVotesId: function(id){
+            return PlayerVotes.findOne({_id:id});
+        },
+        searchPlayerVotesUser: function(user){
+            console.log(PlayerVotes.findOne({user:user}));
+            return PlayerVotes.findOne({user:user});
         }
+
     })
 });
+/*
+ searchPlayerVotesId = function(id){
+ return PlayerVotes.findOne({_id:id});
+ }
+
+ searchPlayerVotesUser = function(user){
+ return PlayerVotes.findOne({user:user});
+ }
+ */
