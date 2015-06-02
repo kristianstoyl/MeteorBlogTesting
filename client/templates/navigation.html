@@ -1,0 +1,23 @@
+<template name="navigation">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="myName" href="/">Kristian  Stoylen</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="{{isActiveRoute regex='home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
+                    <li class="{{isActivePath regex='/playground'}}"><a href="{{pathFor 'playground'}}">Playground</a></li>
+                    <li class="{{isActivePath regex='/testing'}}"><a href="{{pathFor 'testing'}}">I'm not sure yet</a></li>
+                    <li class="{{isActivePath regex='/about'}}"><a href="{{pathFor 'about'}}">About me</a></li>
+                </ul>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {{> loginButtons}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</template>

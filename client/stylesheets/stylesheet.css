@@ -1,0 +1,15 @@
+#myName {
+    border:none;
+    outline:none;
+    text-decoration:none;
+    color: aquamarine;
+}
+body {
+    /*noinspection CssUnknownTarget*/
+    background-image: url(/img/paisley.png);
+}
+
+#bodybackground {
+    height: 100%;
+    background-color: beige;
+}

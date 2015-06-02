@@ -1,0 +1,3 @@
+- Let user click button to increase points on his own account.
+    -Should use database-tables, to learn
+    -Maybe show leaderboard of which users have most points.
