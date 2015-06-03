@@ -10,8 +10,7 @@ body {
 }
 
 #bodybackground {
-    height: 100%;
-    background-color: beige;
+    background: rgba(97, 98, 127, .5);
 }
 
 .leaderboard {
@@ -23,6 +22,7 @@ body {
 }
 .outer {
     margin: 0 auto;
+    margin-top: 1%;
     max-width: 480px;
 }
 .player {
