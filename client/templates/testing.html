@@ -1,9 +1,15 @@
 <template name="testing">
-    <button id="abutton">Show Animation</button>
-    <button id="delete">Delete all</button>
-    <button id="userId">User Id show</button>
-    <button id="create">Create user</button>
-    <ol>
+        <button id="abutton">Reset all points</button>
+        <li>
+            <button id="poeng">Add points</button>
+        </li>
+    <div class="outer">
+        {{> leaderboard}}
+    </div>
+</template>
+
+<template name="leaderboard">
+    <ol class="leaderboard">
         {{#each playerinfo}}
             {{> player}}
         {{/each}}
@@ -11,8 +17,8 @@
 </template>
 
 <template name="player">
-    <li>
-        <span class="name"><button>{{user}}</button></span>
+    <li class="player">
+        <span class="name">{{userName}}</span>
         <span class="score">{{score}}</span>
     </li>
 </template>

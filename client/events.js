@@ -32,20 +32,27 @@ Template.testing.events({
             }
         );
     },
-    'click #delete': function(){
+    'click #poeng': function(){
+        var list = PlayerVotes.findOne({user:Meteor.userId()});
+        PlayerVotes.update(list._id, {$inc: {score: 5}});
+    },
+    'click #del': function(){
         Meteor.call('clearPlayerVotes')
     },
     'click #userId': function(){
         swal(Meteor.userId())
     },
     'click #create': function(){
-        var list = Meteor.call('searchPlayerVotesUser', Meteor.userId());
-        if(typeof list === undefined){
+        var list = PlayerVotes.findOne({user: Meteor.userId()});
+        if(list === undefined){
             PlayerVotes.insert({
                 user: Meteor.userId(),
                 score: 0
             });
         }
+    },
+    'click #test': function(){
+        swal(Meteor.userId());
     }
 });
 

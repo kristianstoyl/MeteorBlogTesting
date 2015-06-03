@@ -14,5 +14,4 @@ iron:router
 zimme:iron-router-active
 accounts-google
 ian:accounts-ui-bootstrap-3
-accounts-facebook
 service-configuration

@@ -1,4 +1,5 @@
 Session.set('counter', 0);
+Session.set('name', '');
 
 Template.home.helpers({
     counter: function () {
@@ -12,9 +13,17 @@ Template.home.helpers({
     }
 });
 
-Template.testing.helpers({
-    playerinfo: function(){
-        return PlayerVotes.find({},{ sort: { score: -1} });
+Template.leaderboard.helpers({
+    playerinfo: function () {
+        return PlayerVotes.find({}, {sort: {score: -1}});
+    }
+});
+Template.player.helpers({
+    userName: function () {
+        //console.log(this.user);
+        var result = Meteor.users.findOne({_id: this.user});
+        if(typeof result.profile.name !== undefined)
+            return result.profile.name;
     }
 });
 
