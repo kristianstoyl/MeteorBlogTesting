@@ -37,9 +37,3 @@ Template.testing.events({
         Meteor.call('clearPlayerVotes')
     }
 });
-
-Template.player.events({
-    'click button': function(){
-        PlayerVotes.update(this._id, {$inc: {score: 5}});
-    }
-});
