@@ -16,12 +16,7 @@ Template.leaderboard.helpers({
 });
 Template.player.helpers({
     userName: function () {
-        var result = Meteor.users.findOne({_id: this.user});
-        if(result === undefined) {
-        } else {
-            if (typeof result.profile.name !== undefined)
-                return result.profile.name;
-        }
+        return this.name;
     }
 });
 

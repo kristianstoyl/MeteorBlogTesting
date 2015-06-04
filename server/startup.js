@@ -17,8 +17,12 @@ Meteor.startup(function () {
         resetPlayerVotes: function () {
             var list = PlayerVotes.find().fetch();
             _.each(list, function (coll) {
-                PlayerVotes.update(coll._id, {$set: {score: 0}});
+                PlayerVotes.update(coll, {$set: {score: 0}});
             });
+        },
+        addUserPoints: function(user){
+            var list = PlayerVotes.findOne({name:user.profile.name})
+            PlayerVotes.update(list, {$inc: {score: 5}});
         }
 
     })

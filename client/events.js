@@ -1,8 +1,6 @@
 Template.home.events({
     'click button': function () {
-        // increment the counter when button is clicked
         Session.set('counter', Session.get('counter') + 1);
-        //Counter.update();
     }
 });
 
@@ -33,26 +31,10 @@ Template.testing.events({
         );
     },
     'click #poeng': function(){
-        var list = PlayerVotes.findOne({user:Meteor.userId()});
-        PlayerVotes.update(list._id, {$inc: {score: 5}});
+        Meteor.call('addUserPoints', Meteor.user());
     },
     'click #del': function(){
         Meteor.call('clearPlayerVotes')
-    },
-    'click #userId': function(){
-        swal(Meteor.userId())
-    },
-    'click #create': function(){
-        var list = PlayerVotes.findOne({user: Meteor.userId()});
-        if(list === undefined){
-            PlayerVotes.insert({
-                user: Meteor.userId(),
-                score: 0
-            });
-        }
-    },
-    'click #test': function(){
-        swal(Meteor.userId());
     }
 });
 

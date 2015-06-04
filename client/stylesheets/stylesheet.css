@@ -11,6 +11,7 @@ body {
 
 #bodybackground {
     background: rgba(97, 98, 127, .5);
+    border-radius: 1em;
 }
 
 .leaderboard {
@@ -22,7 +23,7 @@ body {
 }
 .outer {
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: 1em;
     max-width: 480px;
 }
 .player {
@@ -50,3 +51,7 @@ body {
     line-height: 2.4em;
     padding-right: 1.25em;
 }
+.name {
+    line-height: 2.4em;
+}
+
