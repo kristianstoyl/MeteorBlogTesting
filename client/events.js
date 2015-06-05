@@ -22,10 +22,10 @@ Template.testing.events({
                     Session.set('counter', 0);
                     Meteor.call('resetPlayerVotes');
                     swal("Deleted!",
-                        "Your imaginary file has been deleted.",
+                        "Your imaginary points has been deleted.",
                         "success");
                 } else {
-                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                    swal("Cancelled", "Your imaginary points are safe :)", "error");
                 }
             }
         );
