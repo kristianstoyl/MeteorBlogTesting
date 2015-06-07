@@ -12,8 +12,25 @@ Meteor.startup(function () {
             });
         },
         addUserPoints: function(user){
-            var list = PlayerVotes.findOne({name:user.profile.name})
+            var list = PlayerVotes.findOne({userId:user._id})
             PlayerVotes.update(list, {$inc: {score: 5}});
+        },
+        addComment: function(message, user){
+            if(user !== null) {
+                Comments.insert({
+                    comment: message,
+                    user: user,
+                    userId: user._id,
+                    name: user.profile.name,
+                    createdAt: new Date()
+                });
+            } else {
+                Comments.insert({
+                    comment: message,
+                    name: 'anon',
+                    createdAt: new Date()
+                });
+            }
         }
 
     })

@@ -1,8 +1,19 @@
 <template name="playground">
-    <h1>This is heading 1</h1>
-    <h2>This is heading 2</h2>
-    <h3>This is heading 3</h3>
-    <h4>This is heading 4</h4>
-    <h5>This is heading 5</h5>
-    <h6>This is heading 6</h6>
+    <h1>COMMENT TEST</h1>
+
+    <form class="input-group">
+      <input autocomplete="off" type="text" id="commentform" class="form-control" placeholder="Comment...">
+      <span class="input-group-btn">
+            <button type="submit" class="btn btn-success" id="comment">Send</button>
+      </span>
+    </form>
+
+
+    {{#each comments}}
+        {{> comment}}
+    {{/each}}
+</template>
+
+<template name="comment">
+    <div>{{name}}: {{comment}}</div>
 </template>

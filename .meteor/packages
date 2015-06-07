@@ -15,4 +15,5 @@ zimme:iron-router-active
 accounts-google
 ian:accounts-ui-bootstrap-3
 service-configuration
+jquery
 msavin:mongol

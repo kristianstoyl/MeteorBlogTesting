@@ -20,4 +20,10 @@ Template.player.helpers({
     }
 });
 
+Template.playground.helpers({
+    comments: function(){
+        return Comments.find({}, {sort: {createdAt: -1}});
+    }
+});
+
 // remember to read TODO.txt

@@ -37,3 +37,15 @@ Template.testing.events({
         Meteor.call('clearPlayerVotes')
     }
 });
+
+Template.playground.events({
+    'submit .input-group': function(event){
+        event.preventDefault();
+        var comment = $("#commentform").val();
+        var user = Meteor.user();
+        console.log(user);
+        if(comment !== '')
+            Meteor.call('addComment', comment, user);
+        $("#commentform").val('');
+    }
+});
