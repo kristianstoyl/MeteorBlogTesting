@@ -11,12 +11,9 @@
                     <li class="{{isActivePath regex='/testing'}}"><a href="{{pathFor 'testing'}}">I'm not sure yet</a></li>
                     <li class="{{isActivePath regex='/about'}}"><a href="{{pathFor 'about'}}">About me</a></li>
                 </ul>
-
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        {{> loginButtons}}
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    {{> loginButtons}}
+                </ul>
             </div>
         </div>
     </nav>
