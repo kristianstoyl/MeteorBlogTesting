@@ -1,3 +1,4 @@
+
 Meteor.startup(function () {
     Meteor.methods({
         //Clears ALL items in collection PlayerVotes

@@ -4,7 +4,7 @@ Template.home.events({
     }
 });
 
-Template.testing.events({
+Template.leaderboardMain.events({
     'click #abutton': function () {
         swal({
                 title: "Are you sure?",
@@ -47,5 +47,13 @@ Template.playground.events({
         if(comment !== '')
             Meteor.call('addComment', comment, user);
         $("#commentform").val('');
+    },
+    'click #showChat': function () {
+        console.log('clicked');
+        $('.chat').slideToggle("fast");
+    },
+    'click #showleader': function(){
+        console.log('clicked');
+        $('.leader').slideToggle("fast");
     }
 });

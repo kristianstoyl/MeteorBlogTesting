@@ -1,4 +1,5 @@
 Session.set('counter', 0);
+document.title = "My Title";
 
 Template.home.helpers({
     counter: function () {
@@ -20,10 +21,14 @@ Template.player.helpers({
     }
 });
 
-Template.playground.helpers({
+Template.chat.helpers({
     comments: function(){
         return Comments.find({}, {sort: {createdAt: -1}});
     }
 });
+
+Template.chat.rendered = function(){
+    $(".scroll").tinyscrollbar();
+}
 
 // remember to read TODO.txt
