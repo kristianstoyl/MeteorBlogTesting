@@ -40,13 +40,14 @@ Template.leaderboardMain.events({
 
 Template.playground.events({
     'submit .input-group': function(event){
+        var form = $("#commentform");
         event.preventDefault();
-        var comment = $("#commentform").val();
+        var comment = form.val();
         var user = Meteor.user();
         console.log(user);
         if(comment !== '')
             Meteor.call('addComment', comment, user);
-        $("#commentform").val('');
+        form.val('');
     },
     'click #showChat': function () {
         console.log('clicked');
