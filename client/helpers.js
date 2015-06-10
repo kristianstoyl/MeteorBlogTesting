@@ -10,10 +10,6 @@ Template.home.helpers({
     }
 });
 
-Template.blog.helpers({
-
-});
-
 Template.leaderboard.helpers({
     playerinfo: function () {
         return PlayerVotes.find({}, {sort: {score: -1}});
