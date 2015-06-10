@@ -32,6 +32,13 @@ Meteor.startup(function () {
                     createdAt: new Date()
                 });
             }
+        },
+        postBlog: function(title, body){
+            Blogpost.insert({
+                title: title,
+                body: body,
+                createdAt: new Date()
+            });
         }
 
     })

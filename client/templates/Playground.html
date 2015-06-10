@@ -1,6 +1,6 @@
 <template name="playground" xmlns="http://www.w3.org/1999/html">
-    <button class="btn btn-default" id="showChat">Show Chat</button>
-    <button class="btn btn-default" id="showleader">Show Leaderboard</button>
+    <button class="btn btn-default" id="showChat" onclick="this.blur();">Show Chat</button>
+    <button class="btn btn-default" id="showleader" onclick="this.blur();">Show Leaderboard</button>
 
     <div class="chat" style="display: none;">
         {{> chat}}

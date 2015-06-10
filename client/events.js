@@ -1,6 +1,21 @@
 Template.home.events({
-    'click button': function () {
-        Session.set('counter', Session.get('counter') + 1);
+    'click #newPost': function () {
+        $('.postform').slideToggle("fast");
+        $("#textid").val('');
+        $("#bodyid").val('');
+    },
+    'submit .postform': function(event){
+        event.preventDefault();
+        var title = $("#textid");
+        var body = $("#bodyid");
+        var titletext = title.val();
+        var bodytext = body.val();
+        console.log(titletext);
+        if(title !== '' && body !== '')
+            Meteor.call('postBlog', titletext, bodytext);
+        title.val('');
+        body.val('');
+        $('.postform').slideToggle("fast");
     }
 });
 
@@ -30,22 +45,22 @@ Template.leaderboardMain.events({
             }
         );
     },
-    'click #poeng': function(){
+    'click #poeng': function () {
         Meteor.call('addUserPoints', Meteor.user());
     },
-    'click #del': function(){
+    'click #del': function () {
         Meteor.call('clearPlayerVotes')
     }
 });
 
 Template.playground.events({
-    'submit .input-group': function(event){
+    'submit .input-group': function (event) {
         var form = $("#commentform");
         event.preventDefault();
         var comment = form.val();
         var user = Meteor.user();
         console.log(user);
-        if(comment !== '')
+        if (comment !== '')
             Meteor.call('addComment', comment, user);
         form.val('');
     },
@@ -53,7 +68,7 @@ Template.playground.events({
         console.log('clicked');
         $('.chat').slideToggle("fast");
     },
-    'click #showleader': function(){
+    'click #showleader': function () {
         console.log('clicked');
         $('.leader').slideToggle("fast");
     }

@@ -54,3 +54,14 @@ body {
     line-height: 2.4em;
 }
 
+.blogPost {
+    float: right;
+}
+.blogwrapper {
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.pre {
+    white-space: pre;
+}

@@ -1,4 +1,34 @@
 <template name="home">
+    <div class="blogPost">
+        <button id="newPost" class="btn btn-default create" onclick="this.blur();">New Post</button>
+    </div>
     <h1>Welcome to my Blog</h1>
+
     <p>This is just a website I created to play around with various web-stuff</p>
+
+    <form action="" method="post" role="form" class="postform" style="display: none">
+        <div class="form-group">
+            <label for="">Blogpost</label>
+            <input type="text" class="form-control" name="" id="textid" placeholder="Title...">
+            <textarea class="form-control" id="bodyid" cols="60" rows="3" placeholder="Body.."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="blogwrapper">
+        {{#each blogPosts}}
+            {{> blog }}
+        {{/each}}
+    </div>
+</template>
+
+<template name="blog">
+    <div class="title">
+    <span class="date" style="float: right">
+        {{formatDate createdAt}}
+    </span>
+
+        <h1>{{title}}</h1>
+    </div>
+        {{{breaklines body}}}
 </template>

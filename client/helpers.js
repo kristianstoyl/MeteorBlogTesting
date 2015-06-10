@@ -5,9 +5,13 @@ Template.home.helpers({
     counter: function () {
         return Session.get('counter');
     },
-    points: function () {
-        return Session.get('counter') * 4;
+    blogPosts: function(){
+        return Blogpost.find({}, {sort: {createdAt: -1}});
     }
+});
+
+Template.blog.helpers({
+
 });
 
 Template.leaderboard.helpers({
@@ -29,6 +33,15 @@ Template.chat.helpers({
 
 Template.chat.rendered = function(){
     $(".scroll").tinyscrollbar();
-}
+};
+
+Template.registerHelper('formatDate', function(date){
+    return moment(date).format('DD-MM-YYYY');
+});
+
+Template.registerHelper('breaklines', function(text){
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br/>');
+    return text;
+});
 
 // remember to read TODO.txt
